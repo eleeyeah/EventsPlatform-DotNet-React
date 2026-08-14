@@ -1,0 +1,64 @@
+# Build outputs
+**/bin/
+**/obj/
+**/out/
+**/artifacts/
+*.dll
+*.exe
+*.pdb
+*.cache
+
+# .NET / NuGet
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+*.DotSettings.user
+
+# ASP.NET configuration (may contain connection strings / secrets)
+# Use *.example committed templates + user-secrets / env vars locally
+**/appsettings.json
+**/appsettings.*.json
+!**/appsettings.json.example
+!**/appsettings.*.json.example
+
+# Local / secret overlays
+**/appsettings.*.local.json
+**/secrets.json
+.env
+.env.*
+!.env.example
+
+# User secrets are stored outside the repo (~/.microsoft/usersecrets)
+# Never copy them into the project tree
+
+# IDE
+.idea/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json.example
+
+# OS
+.DS_Store
+Thumbs.db
+*~
+
+# Logs / temp
+*.log
+*.tmp
+*.swp
+
+# Certificates & keys
+*.pfx
+*.pem
+*.key
+**/deploy-key
+**/deploy-key.pub
+**/git-repo-secret.yaml
+*.secret.yaml
+*-secrets.yaml
