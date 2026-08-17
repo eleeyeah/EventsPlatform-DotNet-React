@@ -7,14 +7,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(options =>
-    //!TODO: connect to postgres-patroni-ha in local kubernetes cluster 
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresDefaultConnection")));
+
+builder.Services.AddCors();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000", "https://localhost:3000"));
+
 app.MapControllers();
+
 
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
